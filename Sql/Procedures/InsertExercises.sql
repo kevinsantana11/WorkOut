@@ -37,17 +37,34 @@ VALUES
 			SET @stringLength = LEN(@primaryMuscleId) - @commaIndex;
 			SET @commaIndex =  @commaIndex + 1;
 
-			SELECT SUBSTRING(@primaryMuscleId, 1, 1) as string;
-			INSERT INTO [dbo].[MuscleGroups]
-            (
-				 [MuscleGroupdId]
-				,[MuscleId]
-		    )
-			VALUES
-            (
-				 @primaryUnique
-				,CAST(SUBSTRING(@primaryMuscleId, 1, 1) AS INT)
-			)
+			IF(@commaIndex = 1)
+				BEGIN
+					SET @commaIndex = @stringLength;
+					INSERT INTO [dbo].[MuscleGroups]
+					(
+						[MuscleGroupdId]
+						,[MuscleId]
+					)
+					VALUES
+					(
+						 @primaryUnique
+						,CAST(SUBSTRING(@primaryMuscleId, 1, @commaIndex) AS INT)
+					)
+					SET @commaIndex = 1;
+				END;
+			ELSE
+				BEGIN
+					INSERT INTO [dbo].[MuscleGroups]
+					(
+						 [MuscleGroupdId]
+						,[MuscleId]
+					)
+					VALUES
+					(
+						 @primaryUnique
+						,CAST(SUBSTRING(@primaryMuscleId, 1, @commaIndex - 2) AS INT)
+					)
+				END;
 			IF(@commaIndex = 1)
 				BEGIN
 					SET @primaryMuscleId = NULL; 
@@ -57,23 +74,40 @@ VALUES
 					SET @primaryMuscleId = SUBSTRING(@primaryMuscleId, @commaIndex, @stringLength);
 				END;
 		END;
-		WHILE(@secondaryMuscleId  IS NOT NULL)
+	WHILE(@secondaryMuscleId  IS NOT NULL)
 		BEGIN
 			SET @commaIndex =  PATINDEX('%,%', @secondaryMuscleId);
 			SET @stringLength = LEN(@secondaryMuscleId) - @commaIndex;
 			SET @commaIndex =  @commaIndex + 1;
 
-			SELECT SUBSTRING(@secondaryMuscleId, 1, 1) as string2;
-			INSERT INTO [dbo].[MuscleGroups]
-            (
-				 [MuscleGroupdId]
-				,[MuscleId]
-		    )
-			VALUES
-            (
-				 @secondaryUnique
-				,CAST(SUBSTRING(@secondaryMuscleId, 1, 1) AS INT)
-			)
+			IF(@commaIndex = 1)
+				BEGIN
+					SET @commaIndex = @stringLength;
+					INSERT INTO [dbo].[MuscleGroups]
+					(
+						[MuscleGroupdId]
+						,[MuscleId]
+					)
+					VALUES
+					(
+						 @secondaryUnique
+						,CAST(SUBSTRING(@secondaryMuscleId, 1, @commaIndex) AS INT)
+					)
+					SET @commaIndex = 1;
+				END;
+			ELSE
+				BEGIN
+					INSERT INTO [dbo].[MuscleGroups]
+					(
+						 [MuscleGroupdId]
+						,[MuscleId]
+					)
+					VALUES
+					(
+						 @secondaryUnique
+						,CAST(SUBSTRING(@secondaryMuscleId, 1, @commaIndex - 2) AS INT)
+					)
+				END;
 			IF(@commaIndex = 1)
 				BEGIN
 					SET @secondaryMuscleId = NULL; 

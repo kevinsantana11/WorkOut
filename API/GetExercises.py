@@ -50,9 +50,14 @@ while muscle <= 15:
         primaryMuscles = turn_array_to_string(exerciseMuscles)
         secondaryMuscles = turn_array_to_string(exerciseSecondaryMuscles)
 
-        executeStatement = "EXECUTE dbo.usp_InsertExercise '%s', '%s', '%s', '%s'" % (exerciseName, exerciseDescription, primaryMuscles, secondaryMuscles)
+        results = cursor.execute("select * from exercise where exercise.name = '%s'" % exerciseName)
+
+        run = results.rowcount == 0
+        if run:
+            executeStatement = "EXECUTE dbo.usp_InsertExercise '%s', '%s', '%s', '%s'" % (exerciseName, exerciseDescription, primaryMuscles, secondaryMuscles)
+            cursor.execute(executeStatement)
+
         print(executeStatement)
-        cursor.execute(executeStatement)
 
     nextPage = exerciseJSON["next"]
 
@@ -77,9 +82,12 @@ while muscle <= 15:
             primaryMuscles = turn_array_to_string(exerciseMuscles)
             secondaryMuscles = turn_array_to_string(exerciseSecondaryMuscles)
 
-            executeStatement = "EXECUTE dbo.usp_InsertExercise '%s', '%s', '%s', '%s'" % (exerciseName, exerciseDescription, primaryMuscles, secondaryMuscles)
-            print(executeStatement)
-            cursor.execute(executeStatement)
+            results = cursor.execute("select * from exercise where exercise.name = '%s'" % exerciseName)
+
+            run = results.rowcount == 0
+            if run:
+                executeStatement = "EXECUTE dbo.usp_InsertExercise '%s', '%s', '%s', '%s'" % (exerciseName, exerciseDescription, primaryMuscles, secondaryMuscles)
+                cursor.execute(executeStatement)
 
 connection.commit()
 

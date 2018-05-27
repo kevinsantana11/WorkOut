@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3ebbc8b-9064-4cb1-aa1c-06ff8eaaddd7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/MakeJSONCall.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/GetMuscles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/GetExercises.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/GetExercises.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sql/Procedures/InsertExercises.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Sql/Procedures/InsertExercises.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,8 +38,8 @@
       <file leaf-file-name="GetExercises.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/API/GetExercises.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="74" column="12" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
+            <state relative-caret-position="548">
+              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -203,7 +203,7 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32943678" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39213604" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -242,8 +242,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/API/GetExercises.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="74" column="12" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
+        <state relative-caret-position="548">
+          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
